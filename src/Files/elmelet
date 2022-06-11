@@ -1,0 +1,65 @@
+ELMÉLET / 1. (5P)
+• Mi a különbség az Exception és a RuntimeException között?
+• Hogyan kell őket használni?
+• Mire érdemes figyelni a kezelésüknél?
+
+Exception
+    - alapértelmezett kivételosztály
+    - ellenőrzött kivétel
+    - lehet kezelni
+    - el kell fogadni
+
+RuntimeException
+    - nem ellenőrzött kivétel
+    - nem lehet kezelni a hibákat, hanem javítani kell
+    - ha tudjuk, hogy az adott problémát nem lehet futásidőben lekezelni, akkor alkalmazzuk
+    - a gyakorlatban ritkán hozunk létre RuntimeException-t.
+
+A nem ellenőrzött kivételeket nem kell felsorolni, csak az ellenőrzötteket.
+A RuntimeException az Exception osztályból származik.
+A RuntimeException-t nem kell külön megadni a kivétel specifikációban.
+
+Az ellenőrzött kivételeket el kell kapni vagy kezelni kell ahhoz, hogy a kód lefordítható legyen.
+Az összes futásidejű kivétel egyetlen helyen érdemes kezelni, így kevesebb kódra van szükség
+A futásidejű kivételek a hibákkal együtt a nem engedélyezett kivételek kategóriájába tartoznak
+
+---------------------------------------------------------------------
+ELMÉLET / 2. (5P)
+• Hogyan tudunk egy kollekcióból bejárás közben elemeket törölni?
+• Mutasd be egy vázlatosan (kóddal) az elemek törlésének a módját.
+
+boolean remove(Object)	elem törlése
+boolean removeAll(Collection)	elemek törlése
+
+1. pl. :a.remove(12); töröljük a 12-es értéket
+
+2. pl.: adott index törlése
+for(int i=list.size()-1;i>=0;i--) {
+    if(list.get(i).die) {
+        list.remove(i);
+    }
+}
+---------------------------------------------------------------------
+ELMÉLET / 3. (5P)
+• Ismertesd röviden az OOP koncepciókat a Java-ban.
+
+- absztrakció - az alapvető tulajdonságokat mutatja és a felesleges információkat elrejti
+- enkapszuláció
+    - birtokvédelem
+    - fő irányelv, hogy minden osztály rejtse el a reprezentációit, és csak az interface metódusain
+      keresztül lehessen megváltoztatni azokat (getter, setter segítségével)
+- öröklődés
+    - osztályok között valósul meg, szülő (ős osztály) és gyerek osztály között
+    - a szülő osztály örökíti (a gyerek örökli) saját tulajdonságait és viselkedését
+    - a gyerek a szülő egyes metódusait fel tudja írni vagy akár újra tudja írni
+- többalakúság
+    - objektumok felcserélhetősége
+    - metódus azonos néve más osztályban mást csinál
+---------------------------------------------------------------------
+ELMÉLET / 4. (5P)
+• Milyen adatszerkezet segítségével lehetne a gyakorlati feladatok alatt beolvasott meccsek adatait mindig dátum szerint
+ rendezett sorrendben tárolni?
+• Mit kellene a meccsek adatait tároló osztálynál változtatni, hogy képes legyen az adatszerkezettel együttműködni?
+
+- Szerintem TreeSet-ben lenne érdemes eltárolni, mert az elemek egy fa adatszerkezetbe kerülnek bele.
+- Rendezni kellene a listát dátum szerint.
